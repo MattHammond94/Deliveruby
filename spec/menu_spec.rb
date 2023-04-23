@@ -104,5 +104,14 @@ describe 'displaying menu' do
       menu_1.add_menu_item(item_4)
       expect(menu_1.display_partial_menu(:dessert)).to eq "Dessert menu:\nTiramisu - £4.99"
     end
+
+    it 'Should return a fail/error message when passed anything other than a Symbol data type' do
+      item_1 = MenuItem.new("Curry Goat", 10.00, :main_course, 10)
+      menu_1 = Menu.new
+      menu_1.add_menu_item(item_1)
+      expect { menu_1.display_partial_menu("String") }.to raise_error "This is not a valid menu type"
+      expect { menu_1.display_partial_menu(nil) }.to raise_error "This is not a valid menu type"
+      expect { menu_1.display_partial_menu(12) }.to raise_error "This is not a valid menu type"
+    end
   end
 end
