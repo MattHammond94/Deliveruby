@@ -18,4 +18,26 @@ class Menu
     # May want to add a further method (show_menu_with_index) to allow user the delete using a integer from a list.
     # This will allow user to see the menu formatted in full and to delete using an integer once the menu gets quite large
   end
+
+  def display_full_menu
+    format
+  end
+
+  def display_starters
+    # Will only show :starter type dishes as a formatted list
+  end
+  
+  def display_main_courses
+    #  Will only show :main type dishes as a formatted list
+  end
+
+  def display_desserts
+    # Will only show :dessert type dishes as a formatted list
+  end
+
+  private 
+
+  def format
+    @menu.map { |item| item.dish_name }
+  end
 end

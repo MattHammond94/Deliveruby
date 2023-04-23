@@ -6,6 +6,26 @@ describe MenuItem do
       item_1 = MenuItem.new("Curry Goat", 10.00, :main_course, 10)
       expect(item_1.show_item).to eq ({ dish: "Curry Goat", price: 10.00, type: :main_course, stock_count: 10 })
     end
+
+    it 'Should return the dish name when dish_name is called' do
+      item_1 = MenuItem.new("Curry Goat", 10.00, :main_course, 10)
+      expect(item_1.dish_name).to eq "Curry Goat"
+    end
+    
+    it 'Should return the dish price as a float when dish_price is called' do
+      item_1 = MenuItem.new("Curry Goat", 10.00, :main_course, 10)
+      expect(item_1.dish_price).to eq 10.00
+    end
+
+    it 'Should return the dish type when dish_type is called' do
+      item_1 = MenuItem.new("Curry Goat", 10.00, :main_course, 10)
+      expect(item_1.dish_type).to eq :main_course
+    end
+
+    it 'Should return the dish stock count when dish_stock is called' do
+      item_1 = MenuItem.new("Curry Goat", 10.00, :main_course, 10)
+      expect(item_1.dish_stock).to eq 10
+    end
   end
 
   context 'Should fail' do

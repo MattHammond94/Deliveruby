@@ -18,4 +18,20 @@ class MenuItem
   def show_item
     @item
   end
+
+  def dish_name
+    @item[:dish]
+  end
+
+  def dish_price
+    @item[:price]
+  end
+
+  def dish_type
+    @item[:type]
+  end
+
+  def dish_stock
+    @item[:stock_count]
+  end
 end
