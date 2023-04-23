@@ -1,10 +1,11 @@
 class MenuItem
   def initialize(dish, price, type, stock_count)
-    if !(dish.is_a?(String))
+    @acceptable_types = [:starter, :dessert, :main_course]
+    if !(dish.is_a?(String)) || dish.empty?
       fail "This is not a valid input type for dish."
     elsif !(price.is_a?(Float))
       fail "This is not a valid input type for price."
-    elsif !(type.is_a?(Symbol))
+    elsif !(@acceptable_types.any? { |acceptable| acceptable == type })
       fail "This is not a valid type of Menu Item"
     elsif !(stock_count.is_a?(Integer))
       fail "This is not a valid input type for stock_count"
