@@ -1,4 +1,4 @@
-require 'menu' 
+require 'menu'
 
 describe Menu do
   context 'Multiple items added to menu' do

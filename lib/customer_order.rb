@@ -3,9 +3,12 @@ class CustomerOrder
     @selected_items = []
   end
 
-  def select_dish(menu)
-    # takes an instance of menu and Adds selected items from this instance to selected items array
-    menu.fetch() << @selected_items
+  def select_dish(menu, selected_dish)
+    menu.show_menu.map { |item| item.dish_name == selected_dish ? @selected_items << item : nil }
+  end
+
+  def show_selected_items
+    @selected_items
   end
 
   def show_receipt
