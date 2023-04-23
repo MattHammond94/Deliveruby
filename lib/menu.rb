@@ -23,7 +23,7 @@ class Menu
   end
 
   def display_full_menu
-    format(@menu)
+    "#{display_partial_menu(:starter)}\n#{display_partial_menu(:main_course)}\n#{display_partial_menu(:dessert)}"
   end
 
   private

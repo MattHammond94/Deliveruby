@@ -74,7 +74,7 @@ describe 'displaying menu' do
       menu_1.add_menu_item(item_2)
       menu_1.add_menu_item(item_3)
       menu_1.add_menu_item(item_4)
-      expect(menu_1.display_full_menu).to eq "Curry Goat - £10.0\nMash - £3.99\nTiramisu - £4.99\nBig bit of Salmon - £12.5"
+      expect(menu_1.display_full_menu).to eq "Starter menu:\nMash - £3.99\nMain Courses:\nCurry Goat - £10.0\nBig bit of Salmon - £12.5\nDessert menu:\nTiramisu - £4.99"
     end
   end
 
