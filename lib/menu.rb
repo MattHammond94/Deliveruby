@@ -8,6 +8,7 @@ class Menu
   end
 
   def add_menu_item(menu_item)
+    fail "This is not a valid menu item and cannot be added to the menu" unless menu_item.is_a?(MenuItem)
     @menu << menu_item
   end
   
