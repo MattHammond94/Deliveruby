@@ -20,24 +20,27 @@ class Menu
   end
 
   def display_full_menu
-    format
+    format(@menu)
   end
 
   def display_starters
-    # Will only show :starter type dishes as a formatted list
+    starter_menu = @menu.keep_if { |item| item.dish_type == :starter }
+    "Starter menu:\n#{format(starter_menu)}"
   end
   
   def display_main_courses
-    #  Will only show :main type dishes as a formatted list
+    main_course_menu = @menu.keep_if { |item| item.dish_type == :main_course }
+    "Main Courses:\n#{format(main_course_menu)}"
   end
 
   def display_desserts
-    # Will only show :dessert type dishes as a formatted list
+    desserts_menu = @menu.keep_if { |item| item.dish_type == :dessert }
+    "Desserts:\n#{format(desserts_menu)}"
   end
 
-  private 
+  private
 
-  def format
-    @menu.map { |item| item.dish_name + " - £#{item.dish_price.to_s}" }
+  def format(menu)
+    menu.map { |item| item.dish_name + " - £#{item.dish_price.to_s}" }.join("\n")
   end
 end
