@@ -3,12 +3,12 @@ class MenuItem
     @acceptable_types = [:starter, :dessert, :main_course]
     if !(dish.is_a?(String)) || dish.empty?
       fail "This is not a valid input type for dish."
-    elsif !(price.is_a?(Float))
-      fail "This is not a valid input type for price."
+    elsif !(price.is_a?(Float)) || price < 0
+      fail "This is not a valid input for price."
     elsif !(@acceptable_types.any? { |acceptable| acceptable == type })
       fail "This is not a valid type of Menu Item"
-    elsif !(stock_count.is_a?(Integer))
-      fail "This is not a valid input type for stock_count"
+    elsif !(stock_count.is_a?(Integer)) || stock_count < 1
+      fail "This is not a valid input for stock_count"
     else
       @item = { dish: dish, price: price, type: type, stock_count: stock_count }
     end

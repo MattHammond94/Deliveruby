@@ -15,9 +15,10 @@ describe MenuItem do
       expect { item_2 = MenuItem.new("", 10.00, :main_course, 10) }.to raise_error  "This is not a valid input type for dish."
     end
 
-    it 'Should fail when a non float value is passed for  when creating new item' do
-      expect { item_1 = MenuItem.new("Curry Goat", nil, :main_course, 10) }.to raise_error "This is not a valid input type for price."
-      expect { item_2 = MenuItem.new("Sandwich", 8, :main_course, 10) }.to raise_error "This is not a valid input type for price."
+    it 'Should fail when a non float value for price is passed when creating new item' do
+      expect { item_1 = MenuItem.new("Curry Goat", nil, :main_course, 10) }.to raise_error "This is not a valid input for price."
+      expect { item_2 = MenuItem.new("Sandwich", 8, :main_course, 10) }.to raise_error "This is not a valid input for price."
+      expect { item_3 = MenuItem.new("Sandwich", -1.50, :main_course, 10) }.to raise_error "This is not a valid input for price."
     end
 
     it 'Should fail when value passed as type at initialize is not a valid symbol' do
@@ -27,9 +28,11 @@ describe MenuItem do
       expect { item_4 = MenuItem.new("Sandwich", 8.25, :cabbage, 10) }.to raise_error "This is not a valid type of Menu Item"
     end
     
-    it 'Should fail when value passed as type at initialize is not a valid symbol' do
-      expect { item_1 = MenuItem.new("Curry Goat", 10.50, :starter, nil) }.to raise_error "This is not a valid input type for stock_count"
-      expect { item_2 = MenuItem.new("Sandwich", 8.25, :main_course, 2.4) }.to raise_error "This is not a valid input type for stock_count"
+    it 'Should fail when value passed as stock count at initialize is not a valid Integer or is less than 1' do
+      expect { item_1 = MenuItem.new("Curry Goat", 10.50, :starter, nil) }.to raise_error "This is not a valid input for stock_count"
+      expect { item_2 = MenuItem.new("Sandwich", 8.25, :main_course, 2.4) }.to raise_error "This is not a valid input for stock_count"
+      expect { item_3 = MenuItem.new("Sandwich", 8.25, :main_course, 0) }.to raise_error "This is not a valid input for stock_count"
+      expect { item_4 = MenuItem.new("Sandwich", 8.25, :main_course, -3) }.to raise_error "This is not a valid input for stock_count"
     end
   end
 end
