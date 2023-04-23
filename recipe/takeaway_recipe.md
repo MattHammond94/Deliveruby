@@ -33,7 +33,7 @@ _class MenuItem_
 
 _class MenuItemFormatter_
 * Formats menu instances to show as only dish name and price as concatenated strings
-* (Can use this class just as a private method within the menu class)
+* (Can use this class just as a private method within the user/customer class)
 
 _class DeliveryTimeText_
 * Monitors current time
@@ -53,6 +53,33 @@ class Menu
     # takes an instance of menu item as a hash
     # Hash << @menu
   end
+  
+  def remove_menu_item(MenuItem)
+    # Removes item from menu permenantly
+  end
+end
+
+class MenuItem 
+  def initialize(dish, price, type, stock_count)
+    dish should be a STRING or returns an error
+    price should be a FLOAT or returns an error
+    type should be a SYMBOL or string of (:main_course, :dessert or :starter) or returns an error
+    stock_count should be a INTEGER or returns an error
+
+    creates a new hash with each key passed respective value as above 
+  end
+end
+
+# class MenuItemFormatter
+#   def format(MenuItem)
+#     # Converts instance of menu item into a single concat string of dish name and price
+#   end
+# end
+
+class Customer
+  def initialize 
+    @selected_items = []
+  end
 
   def display_full_menu
     # Shows all the menu as a full formatted list
@@ -70,50 +97,22 @@ class Menu
     # Will only show :dessert type dishes as a formatted list
   end
 
-  def add_menu_item(MenuItem)
-    # takes an instance of menu item as a hash
-    # Hash << @menu
+  def select_dish(menu)
+    # takes an instance of menu and Adds selected items from this instance to selected items array
+    menu.fetch() << @selected_items
   end
 
-  def remove_menu_item(MenuItem)
-    # Removes item from menu permenantly
-  end
-end
-
-class MenuItem 
-  def initialize(dish, price, type, stock_count)
-    dish should be a STRING or returns an error
-    price should be a FLOAT or returns an error
-    type should be a SYMBOL or string of (:main_course, :dessert or :starter) or returns an error
-    stock_count should be a INTEGER or returns an error
-
-    creates a new hash with each key passed respective value as above 
-  end
-end
-
-class MenuItemFormatter
-  def format(MenuItem)
-    # Converts instance of menu item into a single concat string of dish name and price
-  end
-end
-
-class CustomerOrder
-  def initialize 
-    @selected_items = []
-  end
-
-  def select_dish
-    # Adds selected items to selected items array
-    @menu.fetch() << @selected_items
-  end
-
-  def show_receipt 
+  def show_receipt
     # shows all selected items formatted
     @selected_items
     total_cost.to_s
   end
 
   private 
+
+  def format
+    # Formats each item as specified.
+  end
 
   def total_cost
     # Returns the total cost of all selected dishes as an Integer
@@ -131,7 +130,58 @@ end
 ```
 
 ## 3. Create Examples as Integration Tests
-
+``` ruby
+item_1 = MenuItem.new("Curry Goat", 10.00, :main_course, 10)
+item_2 = MenuItem.new("Mash", price: 3.99, type: :starter, :stock_count 5)
+item_3 = MenuItem.new("Tiramisu", price: 4.99, type: :dessert, :Stock_count 3)
+item_4 = MenuItem.new( "Big bit of Salmon", 12.50, :main_course, 6)
 menu_1 = Menu.new
-menu_item.new()
-menu_1.add_menu_item()
+menu_1.add_menu_item(item_1)
+menu_1.add_menu_item(item_2)
+menu_1.add_menu_item(item_3)
+menu_1.add_menu_item(item_4)
+customer_1 = Customer.new
+
+customer_1.display_desserts => "Desserts: Tiramisu - £4.99"
+customer_1.display_main_courses => "Main Courses: Big bit of Salmon - £12.50, Curry Goat - £10.00"
+
+customer_1.select_dish(item_1) 
+customer_1.select_dish(item_3) => @selected_items => [item_1, item_3]
+customer_1.show_receipt => "Curry goat - £10.00, Tiramisu - £4.99, Total cost: £14.99"
+
+customer_1.display_full_menu => "Starters: 
+                                 Mash - £5.00
+                                 Main Courses:
+                                 Big bit of Salmon - £12.50, 
+                                 Curry Goat - £10.00
+                                 Desserts:
+                                 Tiramisu - £4.99"
+                            
+```
+
+## 4. Create Examples as Unit Tests 
+```ruby
+
+# Customer unit tests using doubles:
+item_1 = double 
+menu_1 = double
+menu_1.add_menu_item(item_1)
+menu.display_full_menu => item_1
+
+
+# Menu Item class errors: 
+
+item_1 = MenuItem.new(nil, "string", :dessert, 10) => fail/error
+item_2 = MenuItem.new("String", 1.25, :starter, 10.5) => fail/error
+item_3 = MenuItem.new("String", 10, "Main Course", 5) => fail/error
+
+# Menu class errors: 
+
+item_1 = double 
+menu_1 = Menu.new
+menu_1.add_menu_item(RandomObj) => fail/error
+
+```
+
+## 5. Implement the Behaviour 
+_After each test you write follow the test-driving process of red, green, refactor to implement the behaviour_
