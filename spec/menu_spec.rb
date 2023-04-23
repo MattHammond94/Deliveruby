@@ -73,6 +73,6 @@ describe 'formatter' do
     menu_1.add_menu_item(item_2)
     menu_1.add_menu_item(item_3)
     menu_1.add_menu_item(item_4)
-    expect(menu_1.display_full_menu).to eq ["Curry Goat", "Mash", "Tiramisu", "Big bit of Salmon"]
+    expect(menu_1.display_full_menu).to eq ["Curry Goat - £10.0", "Mash - £3.99", "Tiramisu - £4.99", "Big bit of Salmon - £12.5"]
   end
 end

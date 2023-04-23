@@ -38,6 +38,6 @@ class Menu
   private 
 
   def format
-    @menu.map { |item| item.dish_name }
+    @menu.map { |item| item.dish_name + " - £#{item.dish_price.to_s}" }
   end
 end
