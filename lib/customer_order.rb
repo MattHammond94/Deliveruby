@@ -12,14 +12,16 @@ class CustomerOrder
   end
 
   def show_receipt
-    # shows all selected items formatted
-    @selected_items
-    total_cost.to_s
+    "Receipt:\n" + format(@selected_items) + "\nTotal cost: £#{total_cost.to_s}"
   end
 
-  private
+  # private
+
+  def format(menu)
+    menu.map { |item| item.dish_name + " - £#{item.dish_price.to_s}" }.join("\n")
+  end
 
   def total_cost
-    # Returns the total cost of all selected dishes as an Integer
+    @selected_items.map { |item| item.dish_price }.sum
   end
 end
