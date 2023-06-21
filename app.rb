@@ -26,7 +26,6 @@ puts "\n------------------------------"
 print menu_1.display_partial_menu(:dessert)
 
 # Customer order functionality:
-
 order_1 = CustomerOrder.new
 order_1.select_dish(menu_1, "Curry Goat")
 order_1.select_dish(menu_1, "Mash")
