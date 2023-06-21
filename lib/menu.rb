@@ -26,8 +26,6 @@ class Menu
     "#{display_partial_menu(:starter)}\n#{display_partial_menu(:main_course)}\n#{display_partial_menu(:dessert)}"
   end
 
-  # private
-
   def formatter(menu)
     menu.map { |item| "#{item.dish_name} - £#{format('%.2f', item.dish_price)}" }.join("\n")
   end

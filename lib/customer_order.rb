@@ -12,12 +12,10 @@ class CustomerOrder
   end
 
   def show_receipt
-    "Receipt:\n#{format(@selected_items)}\nTotal cost: £#{total_cost.to_s}"
+    "Receipt:\n#{order_formatter(@selected_items)}\nTotal cost: £#{total_cost.to_s}"
   end
 
-  # private
-
-  def format(menu)
+  def order_formatter(menu)
     menu.map { |item| "#{item.dish_name} - £#{item.dish_price.to_s}" }.join("\n")
   end
 
