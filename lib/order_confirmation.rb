@@ -14,7 +14,7 @@ class OrderConfirmation
 
   def time
     @busy == false ? time = Time.now + (30 * 60) : time = Time.now + (60 * 60)
-    time.strftime("%I:%M %p")
+    time.strftime('%I:%M %p')
   end
 
   def busy?

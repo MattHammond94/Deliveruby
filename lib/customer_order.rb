@@ -22,6 +22,6 @@ class CustomerOrder
   end
 
   def total_cost
-    @selected_items.map { |item| item.dish_price }.sum
+    @selected_items.map(&:dish_price).sum
   end
 end

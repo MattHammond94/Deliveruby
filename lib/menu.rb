@@ -1,5 +1,5 @@
 class Menu
-  def initialize 
+  def initialize
     @menu = []
   end
 
@@ -8,16 +8,18 @@ class Menu
   end
 
   def add_menu_item(menu_item)
-    fail 'This is not a valid menu item and cannot be added to the menu' unless menu_item.is_a?(MenuItem)
+    raise 'This is not a valid menu item and cannot be added to the menu' unless menu_item.is_a?(MenuItem)
+
     @menu << menu_item
   end
-  
+
   def remove_menu_item(menu_item)
     @menu.delete(menu_item)
   end
 
   def display_partial_menu(type)
-    fail 'This is not a valid menu type' unless type.is_a?(Symbol)
+    raise 'This is not a valid menu type' unless type.is_a?(Symbol)
+    
     menu_type = @menu.select { |item| item.dish_type == type }
     type == :main_course ? "Main Courses:\n#{formatter(menu_type)}" : "#{type.to_s.capitalize} menu:\n#{formatter(menu_type)}"
   end
