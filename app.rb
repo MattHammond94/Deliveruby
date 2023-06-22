@@ -31,17 +31,17 @@ print menu_1.display_partial_menu(:dessert)
 
 # Customer order functionality:
 order_1 = CustomerOrder.new
-# order_1.select_dish(menu_1, "Curry Goat")
-# order_1.select_dish(menu_1, "Mash")
-# order_1.select_dish(menu_1, "Tiramisu")
-order_1.select_dish(menu_1, "Mash")
-order_1.select_dish(menu_1, "Curry Goat")
-order_1.select_dish(menu_1, "Tiramisu")
-puts "\n-----------------------------"
+# order_1.select_dish(menu_1, 'Curry Goat')
+# order_1.select_dish(menu_1, 'Mash')
+# order_1.select_dish(menu_1, 'Tiramisu')
+order_1.select_dish(menu_1, 'Mash')
+order_1.select_dish(menu_1, 'Curry Goat')
+order_1.select_dish(menu_1, 'Tiramisu')
+# puts "\n-----------------------------"
 # print order_1.show_selected_items
-# order_1.select_dish(menu_1, "Stew")
-# order_1.select_dish(menu_1, "Beans")
-# order_1.select_dish(menu_1, "Breadstick(singular)")
+# order_1.select_dish(menu_1, 'Stew')
+# order_1.select_dish(menu_1, 'Beans')
+# order_1.select_dish(menu_1, 'Breadstick(singular)')
 puts "\n-----------------------------"
 # print order_1.show_receipt
 
