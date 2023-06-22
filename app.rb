@@ -3,6 +3,7 @@ require_relative './lib/menu_item'
 require_relative './lib/menu'
 require_relative './lib/order_confirmation'
 require_relative './lib/twilio_details'
+require_relative './lib/alt_order_confirmation'
 
 item1 = MenuItem.new('Curry Goat', 10.00, :main_course, 10)
 item2 = MenuItem.new('Mash', 3.99, :starter, 5)
@@ -34,19 +35,19 @@ order1 = CustomerOrder.new
 # order1.select_dish(menu1, 'Curry Goat')
 # order1.select_dish(menu1, 'Mash')
 # order1.select_dish(menu1, 'Tiramisu')
-order1.select_dish(menu1, 'Mash')
-order1.select_dish(menu1, 'Curry Goat')
-order1.select_dish(menu1, 'Tiramisu')
+# order1.select_dish(menu1, 'Mash')
+# order1.select_dish(menu1, 'Curry Goat')
+# order1.select_dish(menu1, 'Tiramisu')
 # puts "\n-----------------------------"
 # print order_1.show_selected_items
-# order1.select_dish(menu1, 'Stew')
-# order1.select_dish(menu1, 'Beans')
-# order1.select_dish(menu1, 'Breadstick(singular)')
+order1.select_dish(menu1, 'Stew')
+order1.select_dish(menu1, 'Beans')
+order1.select_dish(menu1, 'Breadstick(singular)')
 puts "\n-----------------------------"
 # print order1.show_receipt
 
 details = TwilioDetails.new
-confirmation = OrderConfirmation.new(details, order1)
+confirmation = AlternateOrderConfirmation.new(order1)
 confirmation.send_message
 
 # puts confirmation.send_message.sid
