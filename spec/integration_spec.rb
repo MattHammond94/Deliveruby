@@ -20,7 +20,7 @@ describe CustomerOrder do
       menu1.add_menu_item(dish4)
       order1 = CustomerOrder.new
       order1.select_dish(menu1, 'Curry Goat')
-      expect(order1.show_selected_items).to eq ("Current order:\nCurry Goat - £10.00")
+      expect(order1.show_selected_items).to eq "Current order:\nCurry Goat - £10.00"
     end
 
     it 'Should correctly display and update the selected items' do
@@ -39,10 +39,10 @@ describe CustomerOrder do
       menu1.add_menu_item(dish4)
       order1 = CustomerOrder.new
       order1.select_dish(menu1, 'Curry Goat')
-      expect(order1.show_selected_items).to eq ("Current order:\nCurry Goat - £10.00")
+      expect(order1.show_selected_items).to eq "Current order:\nCurry Goat - £10.00"
       order1.select_dish(menu1, 'Tiramisu')
       order1.select_dish(menu1, 'Big bit of Salmon')
-      expect(order1.show_selected_items).to eq ("Current order:\nCurry Goat - £10.00\nTiramisu - £4.99\nBig bit of Salmon - £12.50")
+      expect(order1.show_selected_items).to eq "Current order:\nCurry Goat - £10.00\nTiramisu - £4.99\nBig bit of Salmon - £12.50"
     end
 
     it 'Should return a formatted receipt showing the total cost of selected items' do
