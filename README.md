@@ -66,7 +66,7 @@ Using a environment variables(Recomended):
 Once completed you can use the ```alt_order_confirmation.rb``` class by following the running the program guide below.
 
 > Hard coding details into a class: 
-> If you are struggling to do use the twilio gem using the ENV variables follow the below:
+> If you are struggling to implement the twilio gem using the ENV variables follow the below:
 * Create a class ```twilio_details.rb``` in your lib file
 * Add ```/lib/twilio_details.rb``` to your gitignore file.
 * Your twilio_details class will need to look as below:
@@ -85,7 +85,7 @@ end
 
 ## Running the program
 
-To create an instances of each class:
+To create an instance of each class:
 
 ```ruby
 item1 = MenuItem.new('Curry Goat', 10.00, :main_course, 10) => #Ensure instance is initialised with a string for the title, a float for the price, one of :starter, :main_course or :dessert as a symbol for the type and a int for stock count.
