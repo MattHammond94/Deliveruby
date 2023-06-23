@@ -1,21 +1,21 @@
 # Deliveruby
 
 ## The Task
-As a customer
-So that I can check if I want to order something
-I would like to see a list of dishes with prices.
+> As a customer
+> So that I can check if I want to order something
+> I would like to see a list of dishes with prices.
 
-As a customer
-So that I can order the meal I want
-I would like to be able to select some number of several available dishes.
+> As a customer
+> So that I can order the meal I want
+> I would like to be able to select some number of several available dishes.
 
-As a customer
-So that I can verify that my order is correct
-I would like to see an itemised receipt with a grand total.
+> As a customer
+> So that I can verify that my order is correct
+> I would like to see an itemised receipt with a grand total.
 
-As a customer
-So that I am reassured that my order will be delivered on time
-I would like to receive a text such as "Thank you! Your order was placed and will be delivered before 18:52" after I have ordered.
+> As a customer
+> So that I am reassured that my order will be delivered on time
+> I would like to receive a text such as "Thank you! Your order was placed and will be delivered before 18:52" after I have ordered.
 
 ## Structure and Approach
 I seperated my program into 4 different class'.
@@ -64,10 +64,9 @@ Using a environment variables(Recomended):
 * You can also do the same for your mobile numbers for extra security here. 
 
 Once completed you can use the ```alt_order_confirmation.rb``` class by following the running the program guide below.
----
 
-Hard coding details into a class: 
-If you are struggling to do use the twilio gem using the ENV variables follow the below:
+> Hard coding details into a class: 
+> If you are struggling to do use the twilio gem using the ENV variables follow the below:
 * Create a class ```twilio_details.rb``` in your lib file
 * Add ```/lib/twilio_details.rb``` to your gitignore file.
 * Your twilio_details class will need to look as below:
@@ -83,7 +82,6 @@ class TwilioDetails
   end
 end
 ```
-
 
 ## Running the program
 
@@ -103,7 +101,7 @@ details = TwilioDetails.new
 
 confirmation = OrderConfirmation.new(details, order1)
 ```
-===
+
 How the class' interact: 
 
 ```ruby
